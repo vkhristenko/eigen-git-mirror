@@ -81,7 +81,7 @@ template<typename _MatrixType, int _UpLo> class LLT
       * The default constructor is useful in cases in which the user intends to
       * perform decompositions via LLT::compute(const MatrixType&).
       */
-    LLT() : m_matrix(), m_isInitialized(false) {}
+    EIGEN_DEVICE_FUNC LLT() : m_matrix(), m_isInitialized(false) {}
 
     /** \brief Default Constructor with memory preallocation
       *
@@ -89,10 +89,11 @@ template<typename _MatrixType, int _UpLo> class LLT
       * according to the specified problem \a size.
       * \sa LLT()
       */
-    explicit LLT(Index size) : m_matrix(size, size),
+    EIGEN_DEVICE_FUNC explicit LLT(Index size) : m_matrix(size, size),
                     m_isInitialized(false) {}
 
     template<typename InputType>
+    EIGEN_DEVICE_FUNC 
     explicit LLT(const EigenBase<InputType>& matrix)
       : m_matrix(matrix.rows(), matrix.cols()),
         m_isInitialized(false)
@@ -108,6 +109,7 @@ template<typename _MatrixType, int _UpLo> class LLT
       * \sa LLT(const EigenBase&)
       */
     template<typename InputType>
+    EIGEN_DEVICE_FUNC
     explicit LLT(EigenBase<InputType>& matrix)
       : m_matrix(matrix.derived()),
         m_isInitialized(false)
