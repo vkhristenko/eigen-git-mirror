@@ -347,7 +347,7 @@ template<typename Derived> class MatrixBase
 
 /////////// Cholesky module ///////////
 
-    inline const LLT<PlainObject>  llt() const;
+    EIGEN_DEVICE_FUNC inline const LLT<PlainObject>  llt() const;
     inline const LDLT<PlainObject> ldlt() const;
 
 /////////// QR module ///////////
