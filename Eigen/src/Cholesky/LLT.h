@@ -521,6 +521,7 @@ MatrixType LLT<MatrixType,_UpLo>::reconstructedMatrix() const
   * \sa SelfAdjointView::llt()
   */
 template<typename Derived>
+EIGEN_DEVICE_FUNC
 inline const LLT<typename MatrixBase<Derived>::PlainObject>
 MatrixBase<Derived>::llt() const
 {
